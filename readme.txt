@@ -1,12 +1,4 @@
-Plugin Name: Daumbook
-Plugin URI: http://www.bsidesoft.com/?p=450
-Description: Daumbook 플러그인은 isbn으로 "다음검색API"를 이용해 워드프레스에서 책검색 결과를 포스트나 페이지에 쉽게 추가할 수 있도록 도와줍니다. This plugin uses Daum API and helps users easy to use in WordPress.
-Version: 1.0
-Author: bsidesoft
-Author URI: http://www.bsidesoft.com
-
-
-=== Plugin Name ===
+=== Daumbook ===
 Contributors: Bsidesoft
 Donate link: http://www.bsidesoft.com/
 Tags: shorttag, filter, book seach

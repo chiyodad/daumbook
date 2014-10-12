@@ -53,6 +53,14 @@ function daumbook_shortcode( $atts ){//[daumbook isbn="1111111" style=""]
 }
 add_shortcode( 'daumbook', 'daumbook_shortcode' );
 
+function bsjs_shortcode( $atts, $contents ){
+	$result = '';
+	if( isset($atts['div']) ) $result .= '<div id="'.$atts['div'].'"></div>';
+	foreach( array('&#8220;'=>'"','&#8221;'=>'"','&#8243;'=>'"','&#8216;'=>"'",'&#8217;'=>"'",'<br />'=>'') as $k=>$v ) $contents = str_replace( $k, $v, $contents );
+	return $result.'<script>bs(function(){'.wp_kses_decode_entities($contents).'});</script>';
+}
+add_shortcode( 'bsjs', 'bsjs_shortcode' );
+
 function daumbook_filter( $contents ){
 	if( !is_single() ) return $contents;
 	$isbn = get_post_meta( $GLOBALS['post']->ID, 'isbn', true );

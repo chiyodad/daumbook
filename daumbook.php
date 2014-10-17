@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Daumbook
-Plugin URI: http://www.bsidesoft.com/?p=450
+Plugin URI: http://www.bsidesoft.com/?p=1210
 Description: Daumbook 플러그인은 isbn으로 "다음검색API"를 이용해 워드프레스에서 책검색 결과를 포스트나 페이지에 쉽게 추가할 수 있도록 도와줍니다. This plugin uses Daum API and helps users easy to use in WordPress.
 Version: 1.0
 Author: bsidesoft
@@ -9,16 +9,20 @@ Author URI: http://www.bsidesoft.com
 */
 define( 'DAUMBOOK_VERSION', '1.10' );
 
-function bsjs(){
+function daumbookjs(){
 	wp_register_style( 'daumbook', plugins_url( '/daumbook.css', __FILE__ ), false, DAUMBOOK_VERSION );
 	wp_enqueue_style( 'daumbook' );
-	wp_register_script( 'bsjs', 'http://projectbs.github.io/bsJS/bsjs.0.6.js', false );
-	wp_enqueue_script( 'bsjs' );
 	wp_register_script( 'daumbook', plugins_url( '/daumbook.js', __FILE__ ), false, DAUMBOOK_VERSION );
 	wp_enqueue_script( 'daumbook' );
 }
-add_action( 'wp_enqueue_scripts', 'bsjs' );
-
+add_action( 'wp_enqueue_scripts', 'daumbookjs' );
+if( ! function_exists('bsjs') ){
+	function bsjs(){
+		wp_register_script( 'bsjs', '/bsjs.0.6.js', false );
+		wp_enqueue_script( 'bsjs' );
+	}
+	add_action( 'wp_enqueue_scripts', 'bsjs' );
+}
 function daumbook_submenu(){
 	add_option( 'daumbook_apikey', '', '', 'yes' );
 	

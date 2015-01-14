@@ -16,12 +16,12 @@ function daumbookjs(){
 	wp_enqueue_script( 'daumbook' );
 }
 add_action( 'wp_enqueue_scripts', 'daumbookjs' );
-if( ! function_exists('bsjs') ){
-	function bsjs(){
-		wp_register_script( 'bsjs', '/bsjs.0.6.js', false );
-		wp_enqueue_script( 'bsjs' );
+if( ! function_exists('bs1') ){
+	function bs1(){
+		wp_register_script( 'bs1', 'http://bsapi.co/js/bs1.js', false );
+		wp_enqueue_script( 'bs1' );
 	}
-	add_action( 'wp_enqueue_scripts', 'bsjs' );
+	add_action( 'wp_enqueue_scripts', 'bs1' );
 }
 function daumbook_submenu(){
 	add_option( 'daumbook_apikey', '', '', 'yes' );
